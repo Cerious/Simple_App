@@ -11,7 +11,7 @@ module SessionsHelper
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
-    @current_user.nil? #there was supposed to be a bang in front of this.
+    !@current_user.nil? 
   end
 
   def current_user?(user)
