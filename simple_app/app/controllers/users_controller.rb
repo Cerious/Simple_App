@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def udpate
+  def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
+        store_location
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
